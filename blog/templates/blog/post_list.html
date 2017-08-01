@@ -7,19 +7,12 @@
             <h1><a href="">Django Demo Blog</a></h1>
         </div>
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">First Post</a></h2>
-            <p>A few lines of the first blog from Laurem Ipsum.
-                <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in tincidunt mi, nec ultrices justo. Phasellus ut dui ipsum. Integer dapibus libero sed ex lacinia, et fermentum enim congue. Nullam euismod faucibus dui, aliquam ullamcorper libero mattis non.</br>
-            </p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">Second Post</a></h2>
-            <br>Random text.
-                <br>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</br></p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
